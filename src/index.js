@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { router } from './router/router';
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=PT+Mono&display=swap');
+</style>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
 
