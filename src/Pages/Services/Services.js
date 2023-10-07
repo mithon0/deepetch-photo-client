@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import { HashLink as Link } from 'react-router-hash-link';
+import Mannequin from './ServiceComponents/Mannequin';
+import BackgroundRemove from './BackgroundRemove/BackgroundRemove';
 const Services = () => {
     const [option, setOption] = useState(false)
     console.log(option)
@@ -11,7 +13,7 @@ const Services = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                <nav className='bg-orange-600 w-full f2 text-white '>
+                <nav className='sticky top-20 bg-orange-600 w-full f2 text-white '>
                     <ul className='flex md:gap-7 gap-2 md:ms-10 mx-2'>
                         <li className='py-2 hover:bg-blue-700 active:bg-black '><Link to="#mannequin">Ghost Mannequin</Link> </li>
                         <li className='py-2  hover:bg-blue-700 active:bg-black ' onMouseEnter={() => { setOption(true) }} onMouseLeave={() => { setOption(false) }}><Link>Background removal</Link> </li>
@@ -37,8 +39,8 @@ const Services = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1 }}
                         ><ul onMouseEnter={() => { setOption(true) }} onMouseLeave={() => { setOption(false) }}>
-                                <li className=' hover:bg-orange-600 active:bg-black '><Link>-From Athlet</Link></li>
-                                <li className=' hover:bg-orange-600 active:bg-black '><Link>-From product</Link></li>
+                                <li className=' hover:bg-orange-600 active:bg-black '><Link to="#athlet">-From Athlet</Link></li>
+                                <li className=' hover:bg-orange-600 active:bg-black '><Link to="#product">-From product</Link></li>
                                 <li className=' hover:bg-orange-600 active:bg-black '><Link>-From furniture</Link></li>
                                 <li className=' hover:bg-orange-600 active:bg-black '><Link>-From furniture</Link></li>
                                 <li className=' hover:bg-orange-600 active:bg-black '><Link>-From bike & automobiles</Link></li>
@@ -47,6 +49,8 @@ const Services = () => {
 
                 </div>
             </motion.div>
+            <Mannequin></Mannequin>
+            <BackgroundRemove></BackgroundRemove>
         </div>
     );
 };
