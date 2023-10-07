@@ -4,6 +4,7 @@ import image1 from "../../../asset/photo/Ghost Mannequin/clothing-item-before-gh
 import image2 from "../../../asset/photo/Ghost Mannequin/clothing-item-after-ghost-mannequin-effect.webp"
 import image3 from "../../../asset/photo/Ghost Mannequin/ghost-mannequin-service-provider-near-me.webp"
 import image4 from "../../../asset/photo/Ghost Mannequin/ghost-mannequin-service-provider-near-me1.webp"
+import { Link } from 'react-router-dom';
 const Mannequin = () => {
     return (
         <div id='mannequin'>
@@ -25,7 +26,7 @@ const Mannequin = () => {
                 <div className=' w-96 ms-36'>
                     <h1 className='text-4xl f mt-20'>Clothing item ghost Mannequin effect</h1>
                     <p className='text-sm f'>As I stood in the dimly lit room, surrounded by rows of lifeless mannequins, the mannequin effect began to take hold. The stillness of the figures, frozen in various poses, created an eerie atmosphere that made me feel as though I had entered a world devoid of all motion and emotion.</p>
-                    <button className='px-2 py-1 bg-orange-600 text-white mt-5'> Get quote</button>
+                    <button className='px-2 py-1 bg-orange-600 text-white mt-5'> <Link to="/order/pay">Get quote</Link></button>
                 </div>
             </div>
             <div className='grid grid-cols-2'> <div className=' w-96 ms-36'>

@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Services from "../Pages/Services/Services";
+import OrderForm from "../Pages/OrderForm/OrderForm";
 
  export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ import Services from "../Pages/Services/Services";
         {
           path:"/services",
           element:<Services></Services>
+        },
+        {
+          path:"/order/:trail",
+          element:<OrderForm></OrderForm>
         }
       ]
     },
