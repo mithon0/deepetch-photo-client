@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import pic from "../../asset/photo/171.jpg";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2';
 const Login = () => {
     const { logIn } = useContext(AuthContext)
-
+    const location =useLocation()
+    const navigate =useNavigate()
+    const from = location.state?.from?.pathname || "/";
+    console.log(location)
     const {
         register,
         handleSubmit,
@@ -25,7 +28,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
-            
+            navigate(from, { replace: true })
         })
         .catch(err=>{
             console.log(err)

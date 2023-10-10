@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import banner from "../../asset/video/banner.mp4";
 import SectionOne from './HomeSections/SectionOne';
 import SectionTwo from './HomeSections/SectionTwo';
 import OurServices from '../../Shared/OurServices/OurServices';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 const Home = () => {
+    const {user}=useContext(AuthContext)
     return (
         <div className='block'>
              <motion.div
@@ -18,7 +20,7 @@ const Home = () => {
 
             <div className='absolute top-0 bg-[rgba(0,0,0,0.5)] w-full h-full text-white'>
                 <h1 className='md:text-5xl text-3xl f2 text-center lg:mt-60 md:mt-28 mt-5'>Profetional Photo Editing Service</h1>
-               <div className='flex justify-center md:text-3xl text-xl mt-5 uppercase f'> <button className='p-3 hover:bg-orange-900 active:bg-black  bg-orange-700'><Link to="/order/trail-2"> GetStarted With Free Trail</Link></button></div>
+               <div className='flex justify-center md:text-3xl text-xl mt-5 uppercase f'> <button className='p-3 hover:bg-orange-900 active:bg-black  bg-orange-700'><Link to={`/order/${user?.email}`}> GetStarted With Free Trail</Link></button></div>
             </div>
 
             </div>

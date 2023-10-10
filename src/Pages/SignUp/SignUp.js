@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import pic from "../../asset/photo/23.jpg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useForm } from "react-hook-form"
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const SignUp = () => {
     const { user,signUp,updateUserProfile}=useContext(AuthContext)
     console.log(user)
-
+const navigate =useNavigate()
     const {
         register,
         handleSubmit,
@@ -16,11 +16,29 @@ const SignUp = () => {
       } = useForm();
     
       const onSubmit = (data) =>{
+        const usersData ={
+            name: data.name,
+            gender: data.gender,
+            date_of_birth: data.date_of_birth,
+            email: data.email,
+            trail:2,
+            role:"user"
+          }
+
         signUp(data.email,data.password)
         .then(res=>{
             console.log(res)
             updateUserProfile(data.name)
             .then(()=>{
+                fetch("https://deepetch-photo-server-p7dkgndlk-mithon0.vercel.app/users",{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(usersData)
+                })
+                .then(res=>res.json())
+                .then(data=>console.log(data))
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -28,6 +46,7 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  navigate("/")
             })
             .catch(()=>{})
             

@@ -40,9 +40,12 @@ const Navber = () => {
                     <li>
                     <Link to="/services">Services </Link> 
                     </li>
-                    <li><Link>Examples</Link></li>
-                    <li><Link>Contact us</Link></li>
+                    <li><Link to="/examples">Examples</Link></li>
+                    <li><Link to="/contact">Contact us</Link></li>
                     <li><Link>Blog</Link></li>
+                {
+                    user?<li><Link to="/deshboard">Deshboard</Link></li>:<></>
+                }
                     {
                         user?<div className='flex  md:hidden justify-center items-center'>
                         <FaUserCircle onClick={()=>{
@@ -81,7 +84,7 @@ const Navber = () => {
                 {
                 profile?<div className=''>
                 <ul className='flex items-center gap-2'>
-                    <li className='bg-blue-500 rounded px-2 py-1 text-white'>Profile</li>
+                    <li className='bg-blue-500 rounded px-2 py-1 text-white'><Link to="/deshboard/profile">Profile</Link></li>
                     <button onClick={logOutHandler} className='bg-red-500 rounded px-2 py-1 text-white'>Logout</button>
                 </ul>
             </div>:""
